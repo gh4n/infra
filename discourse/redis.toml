@@ -1,0 +1,8 @@
+app = "ssm-redis"
+
+[[mounts]]
+  destination = "/data"
+  source = "ssm_redis_disk"
+
+[build]
+  image = "flyio/redis:6.2.6"

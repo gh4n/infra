@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for pleroma on 2023-06-21T00:33:28+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "pleroma"
+primary_region = "sin"
+
+[build]
+  image = "salvatoret/fly-pleroma:v2.4.4"
+
+[env]
+  PLEROMA_CONFIG_PATH = "/mount/config/config.exs"
+  START_PLEROMA = "1"
+
+[[mounts]]
+  source = "pleroma_storage"
+  destination = "/mount"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0

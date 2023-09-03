@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for ssm-discourse on 2023-06-17T23:37:06+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "ssm-discourse"
+primary_region = "nrt"
+
+[[mounts]]
+  source = "discourse_data"
+  destination = "/bitnami/discourse"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 3000
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
