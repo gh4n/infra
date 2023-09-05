@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  web:
+    build: .
+    volumes:
+      - /home/ubuntu/site:/usr/share/nginx/html
+      - /etc/letsencrypt-remote:/etc/letsencrypt
+      - /home:/app
+    ports:
+      - "80:80"
+      - "443:443"

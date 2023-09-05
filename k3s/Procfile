@@ -1,0 +1,3 @@
+k3s: ${my_k3s}/bin/k3s server --token=my_token --datastore-endpoint=http://127.0.0.1:2379 --node-taint CriticalAddonsOnly=true:NoExecute --node-name=node1 --snapshotter=native --flannel-backend=wireguard-native
+kine: ${kine}/bin/kine --endpoint "nats://127.0.0.1"
+nats: ${nats-server}/bin/nats-server --jetstream --store_dir /var/lib/nats
